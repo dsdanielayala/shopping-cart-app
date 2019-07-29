@@ -2,7 +2,7 @@
   "name": "shopping-cart-app",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "DA",
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
@@ -21,7 +21,10 @@
   "dependencies": {
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
+    "@nestjs/mongoose": "^6.1.2",
     "@nestjs/platform-express": "^6.0.0",
+    "@types/mongoose": "^5.5.11",
+    "mongoose": "^5.6.7",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3"
