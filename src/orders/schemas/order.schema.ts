@@ -1,21 +1,23 @@
 import { Schema } from "mongoose";
 
 export const orderSchema = new Schema({
-    id_user: {
+    idUser: {
         type: String,
         required: true
     },
-    date_r: {
+    dateR: {
         type: Date,
         default: Date.now,
+    },
+    products:{
+        type: Array,
         required: true
     },
-    shipping_date: {
+    shippingDate: {
         type: Date,
-        default: Date.now,
-        required: true
+        default: Date.now
     },
-    purchase_c: {
+    purchaseC: {
         type: Boolean,
         required: true,
         default: false
@@ -24,11 +26,11 @@ export const orderSchema = new Schema({
         type: String,
         required: true
     },
-    cell_phone: {
+    cellPhone: {
         type: String,
         required: true
     },
-    Total_to_pay: {
+    TotalToPay: {
         type: Number,
         required: true,
     }
