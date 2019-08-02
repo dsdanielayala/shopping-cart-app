@@ -13,21 +13,21 @@ export class ProductsService {
     return await createdProduct.save();
   }
 
-  async findAll(): Promise<Product[]>{
+  async findAll(): Promise<Product[]> {
     return await this.productModel.find({ active: true });
-}
+  }
 
-async findOne(id:string): Promise<Product>{
+  async findOne(id: string): Promise<Product> {
     return await this.productModel.findById(id);
-}
+  }
 
-async update(id:string,createProductDto: createProductDto): Promise<Product>{
-    const updateProduct =  await this.findOne(id);
+  async update(id: string, createProductDto: createProductDto): Promise<Product> {
+    const updateProduct = await this.productModel.findById(id);
     return await updateProduct.update(createProductDto);
-}
+  }
 
-async delete(id:string): Promise<Product>{
-    const deleteProduct =  await this.productModel.findById(id);
+  async delete(id: string): Promise<Product> {
+    const deleteProduct = await this.productModel.findById(id);
     return await deleteProduct.remove();
-}
+  }
 }

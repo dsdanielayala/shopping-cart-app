@@ -1,6 +1,5 @@
 import { Controller, Get, Res, HttpStatus, Param, Post, Body, Put, Delete } from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { async } from 'rxjs/internal/scheduler/async';
 import { Response } from 'express';
 import { createProductDto } from './dto/create-product.dto';
 
