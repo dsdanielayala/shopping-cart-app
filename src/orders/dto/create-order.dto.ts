@@ -1,8 +1,8 @@
-import {IsDate, IsInt, IsString, IsBoolean, IsPhoneNumber} from "class-validator";
-import { Product } from "src/products/interface/product.interface";
+import {IsInt, IsString, IsBoolean, IsPhoneNumber} from "class-validator";
+import { Product } from "../../products/interface/product.interface";
+import { User } from "../../users/interface/user.interface";
 export class createOrderDto{
-    @IsString()
-    readonly idUser: string;
+    readonly User: User;
     readonly dateR: Date;
     readonly products: Product[];
     readonly shippingDate: Date;
@@ -12,6 +12,5 @@ export class createOrderDto{
     readonly address: string;
     @IsPhoneNumber('CO')
     readonly cellPhone: string;
-    @IsInt()
-    readonly TotalToPay: number;
+    TotalToPay: number;
 }

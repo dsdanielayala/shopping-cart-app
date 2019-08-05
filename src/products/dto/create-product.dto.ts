@@ -10,8 +10,5 @@ export class createProductDto {
     readonly active: boolean;
     @IsInt()
     readonly available: number;
-    @IsDate(
-        {message: "Date"}
-    )
     readonly createdAt: Date;
 }

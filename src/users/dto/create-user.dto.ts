@@ -12,6 +12,5 @@ export class createUserDto{
     readonly address: string;
     @IsPhoneNumber('CO')
     readonly phone: string;
-    @IsDate()
     readonly createdAt: Date;
 }

@@ -1,8 +1,8 @@
 import { Schema } from "mongoose";
 
 export const orderSchema = new Schema({
-    idUser: {
-        type: String,
+    User: {
+        type: Object,
         required: true
     },
     dateR: {

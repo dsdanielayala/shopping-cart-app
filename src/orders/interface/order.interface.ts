@@ -10,5 +10,5 @@ export interface Order extends Document {
     readonly purchaseC: boolean;
     readonly address: string;
     readonly cellPhone: string;
-    readonly TotalToPay: number;
+    TotalToPay: number;
 }

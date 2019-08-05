@@ -20,10 +20,19 @@ export class OrdersService {
         return await this.orderModel.findById(id);
     }
 
+    
+
     async createOrder(createOrderDto: createOrderDto): Promise<Order> {
         try {
             const order = new this.orderModel(createOrderDto);
-            return await order.save();
+            const totalPrice = this.productsService.totalPrice(order.products);
+            order.TotalToPay = totalPrice;
+            const createdOrder = await order.save();
+            
+            if(createdOrder){
+                this.productsService.updateQuantity(order.products);
+                return await createdOrder;
+            }
         } catch (error) {
             console.log(error);
         }

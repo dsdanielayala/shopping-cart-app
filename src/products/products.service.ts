@@ -26,10 +26,22 @@ export class ProductsService {
     return await updateProduct.update(createProductDto);
   }
 
-  async updateQuantity(id: string, quantity: number): Promise<Product> {
-    const updateProduct = await this.productModel.findById(id);
-    const available = (updateProduct.available - quantity);
-    return await updateProduct.update({ available });
+  async updateQuantity(product: Product[]): Promise<Product[]> {
+    product.forEach(async (value) => {
+      const updateProduct = await this.productModel.findById(value._id);
+      updateProduct.update({ available: (updateProduct.available - value.quantity) });
+    });
+    return await product;
+  }
+
+  totalPrice(product: Product[]): number {
+    let total = product.reduce((accumulator, currentValue) => {
+      return accumulator + (currentValue.price * currentValue.quantity) 
+      }, 0);
+
+    console.log(total);
+
+    return total;
   }
 
   async delete(id: string): Promise<Product> {
