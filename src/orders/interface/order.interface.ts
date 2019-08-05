@@ -1,18 +1,11 @@
 import { Document } from "mongoose";
-import { Product } from "src/products/interface/product.interface";
+import { Product } from "../../products/interface/product.interface";
+import { User } from "../../users/interface/user.interface";
 
-interface ProductOrder {
-    product: Product;
-    quantity: number;
-}
-
-export interface Order extends Document{
-    readonly idUser: string;
+export interface Order extends Document {
+    readonly User: User;
     readonly dateR: Date;
-    readonly products: {
-        _id: string;
-        quantity: number;
-      }[];
+    readonly products: Product[];
     readonly shippingDate: Date;
     readonly purchaseC: boolean;
     readonly address: string;

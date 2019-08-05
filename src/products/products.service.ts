@@ -26,6 +26,12 @@ export class ProductsService {
     return await updateProduct.update(createProductDto);
   }
 
+  async updateQuantity(id: string, quantity: number): Promise<Product> {
+    const updateProduct = await this.productModel.findById(id);
+    const available = (updateProduct.available - quantity);
+    return await updateProduct.update({ available });
+  }
+
   async delete(id: string): Promise<Product> {
     const deleteProduct = await this.productModel.findById(id);
     return await deleteProduct.remove();

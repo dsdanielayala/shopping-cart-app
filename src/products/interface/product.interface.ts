@@ -7,4 +7,5 @@ export interface Product extends Document {
     readonly active: boolean;
     readonly available: number;
     readonly createdAt: Date;
+    readonly quantity: number;
 }

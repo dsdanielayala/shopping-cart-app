@@ -5,7 +5,7 @@ import { createProductDto } from './dto/create-product.dto';
 
 @Controller('products')
 export class ProductsController {
-    constructor(private readonly productService : ProductsService){}
+    constructor(private readonly productService: ProductsService) { }
 
     @Get()
     async findAll(@Res() response: Response) {
@@ -14,10 +14,10 @@ export class ProductsController {
     }
 
     @Get('/:id')
-    async findOne(@Param() params, @Res() response: Response){
+    async findOne(@Param() params, @Res() response: Response) {
         const id = params.id;
         const product = await this.productService.findOne(id);
-        return response.status(HttpStatus.OK).json({product});
+        return response.status(HttpStatus.OK).json({ product });
     }
 
     @Post()
@@ -27,14 +27,14 @@ export class ProductsController {
     }
 
     @Put('/:id')
-    async update(@Param('id') id:string, @Body() createProductDto: createProductDto, @Res() response: Response){
-        const updatedProduct = await this.productService.update(id,createProductDto);
-        return response.status(HttpStatus.OK).json({updatedProduct});
+    async update(@Param('id') id: string, @Body() createProductDto: createProductDto, @Res() response: Response) {
+        const updatedProduct = await this.productService.update(id, createProductDto);
+        return response.status(HttpStatus.OK).json({ updatedProduct });
     }
-    
+
     @Delete('/:id')
-    async delete(@Param('id') id:string, @Res() response: Response){
+    async delete(@Param('id') id: string, @Res() response: Response) {
         const deleteProduct = await this.productService.delete(id);
-        return response.status(HttpStatus.OK).json({deleteProduct});
+        return response.status(HttpStatus.OK).json({ deleteProduct });
     }
 }
